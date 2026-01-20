@@ -26,7 +26,7 @@ final class NetworkManager {
                     key: "ajhsvdfjhsabvfjsdbf%jkhdgbfug"
                 )
 
-            if username.lowercased() == "shaw" &&
+            if username.lowercased() == "shaw@gmail.com" &&
                encryptedPassword == validEncrypted {
                 completion(true, "Sign In Success")
             } else {
