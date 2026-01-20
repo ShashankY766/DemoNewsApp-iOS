@@ -11,7 +11,6 @@
 //
 //  IMPORTANT:
 //  - Function names, parameters, and return types are NOT changed
-//  - UIKit is intentionally retained
 //  - Safe to use from both UIKit and SwiftUI
 //
 
@@ -20,7 +19,6 @@ import UIKit
 /// ------------------------------------------------------------
 /// Applies a blue → white background gradient to a UIView
 /// ------------------------------------------------------------
-/// UIKit usage:
 ///     applyBackgroundGradient(view: self.view)
 ///
 /// SwiftUI usage:
@@ -45,7 +43,6 @@ func applyBackgroundGradient(view: UIView) {
 /// ------------------------------------------------------------
 /// Creates a gradient-colored header UILabel
 /// ------------------------------------------------------------
-/// UIKit usage:
 ///     let label = headerLabel(text: "Sign In")
 ///
 /// SwiftUI usage:

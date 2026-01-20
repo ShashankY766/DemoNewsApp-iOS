@@ -1,6 +1,6 @@
 //
 //  APIErrorMessages.swift
-//  DemoAuthApp
+//  DemoNewsApp
 //
 //  Created by Shashank Yadav on 30/12/25.
 //

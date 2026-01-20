@@ -10,7 +10,6 @@ import SwiftUI
 /// ------------------------------------------------------------
 /// SignInView (SwiftUI)
 /// ------------------------------------------------------------
-/// UIKit parity:
 /// - Tap outside text fields → dismiss keyboard
 /// - Button disabled during sign-in
 /// - State reset on re-appear
@@ -169,12 +168,13 @@ struct SignInView: View {
         .navigationDestination(isPresented: $navigateToNews) {
             NewsView()
         }
-        /// ✅ Dismiss keyboard when tapping outside
+        
+        //Dismiss keyboard when tapping outside
         .onTapGesture {
             focusedField = nil
         }
 
-        /// UIKit viewWillAppear equivalent
+        /// viewWillAppear equivalent
         .onAppear {
             isSigningIn = false
             navigateToNews = false

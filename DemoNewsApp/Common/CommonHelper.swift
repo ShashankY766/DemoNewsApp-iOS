@@ -4,16 +4,6 @@
 //
 //  Created by Shashank Yadav on 27/12/25.
 //
-//  PURPOSE:
-//  - Central reusable helper
-//  - Validation
-//  - Alerts
-//  - Logging
-//  - App-level flags
-//
-//  NOTE:
-//  - UIKit is intentionally imported
-//  - Function names, signatures, and types are NOT changed
 //  - This file is compatible with BOTH UIKit and SwiftUI
 //  - SwiftUI views can access these helpers via their
 //    underlying UIHostingController
@@ -43,7 +33,6 @@ final class CommonHelper {
     ///   - title: Alert title
     ///   - message: Alert message
     ///
-    /// SwiftUI usage:
     /// - Call this using the hosting UIViewController
     static func showAlert(
         on viewController: UIViewController,
@@ -53,7 +42,7 @@ final class CommonHelper {
 
         DispatchQueue.main.async {
 
-            // Prevent multiple alerts stacking
+            // Prevent alerts stacking
             if viewController.presentedViewController is UIAlertController {
                 return
             }
@@ -172,10 +161,8 @@ final class CommonHelper {
 
     // MARK: - Navigation Bar Appearance
 
-    /// Applies orange navigation bar appearance
-    /// Used by UIKit view controllers
-    /// SwiftUI screens using UINavigationController
-    /// will also inherit this appearance
+    /// Applies orange navigation bar appearance used by UIKit view controllers
+    /// SwiftUI screens using UINavigationController will also inherit this appearance
     static func UINavigationBerAppearanceOrange(
         navigationController: UINavigationController
     ) {

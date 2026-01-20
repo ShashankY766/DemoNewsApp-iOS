@@ -1,6 +1,6 @@
 //
 //  CountryCode.swift
-//  DemoAuthApp
+//  DemoNewsApp
 //
 //  Created by Shashank Yadav on 27/12/25.
 //

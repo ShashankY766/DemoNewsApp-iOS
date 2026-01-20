@@ -10,9 +10,8 @@ import SwiftUI
 /// ------------------------------------------------------------
 /// NewsDetailView (SwiftUI)
 /// ------------------------------------------------------------
-/// Direct SwiftUI replacement for NewsDetailViewController.swift
+/// Direct SwiftUI replacement forController.swift
 ///
-/// UIKit → SwiftUI mapping:
 /// - UIViewController → View
 /// - UIScrollView + UIStackView → ScrollView + VStack
 /// - UILabel → Text
@@ -20,8 +19,6 @@ import SwiftUI
 /// - UINavigationBarAppearance → toolbar + navigationTitle
 /// - popViewController → dismiss()
 ///
-/// ❗ Architecture NOT changed
-/// ❗ Article model reused as-is
 /// ------------------------------------------------------------
 struct NewsDetailView: View {
 
@@ -40,7 +37,7 @@ struct NewsDetailView: View {
 
             VStack(alignment: .leading, spacing: 8) {
 
-                /// Article Image (UIImageView equivalent)
+                // Article Image (UIImageView equivalent)
                 Group {
                     if let image = image {
                         Image(uiImage: image)
@@ -61,7 +58,7 @@ struct NewsDetailView: View {
                 )
                 .background(Color(.secondarySystemBackground))
 
-                /// Headline
+                // Headline
                 Text(article.title)
                     .font(.title2)
                     .padding(6)
@@ -126,12 +123,12 @@ struct NewsDetailView: View {
                     showFavouriteAlert = true
                 } label: {
                     Image(systemName: "heart")
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }
             }
         }
 
-        /// Match UINavigationBarAppearance styling
+        // Match UINavigationBarAppearance styling
         .toolbarBackground(Color.orange, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
     //    .toolbarColorScheme(.dark, for: .navigationBar)    imparts yellowish visibilty to orange
@@ -159,19 +156,19 @@ struct NewsDetailView: View {
         return "Unknown Author"
     }
 
-    /// Formats ISO date to dd/MM/yyyy
+    /// Formats ISO date to dd/mm/yyyy
     private func formattedDate(from isoString: String?) -> String {
         guard let isoString = isoString else { return "" }
         let iso = ISO8601DateFormatter()
         if let date = iso.date(from: isoString) {
             let df = DateFormatter()
-            df.dateFormat = "dd/MM/yyyy"
+            df.dateFormat = "dd/mm/yyyy"
             return df.string(from: date)
         }
         return isoString
     }
 
-    /// Loads article image asynchronously (same logic as UIKit)
+    /// Loads article image asynchronously
     private func loadImageIfNeeded() {
         guard let urlString = article.urlToImage,
               let url = URL(string: urlString) else {
