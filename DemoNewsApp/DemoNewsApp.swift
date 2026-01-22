@@ -42,6 +42,8 @@ struct DemoNewsApp: App {
 /// ------------------------------------------------------------
 @main
 struct DemoNewsApp: App {
+    
+    @StateObject private var favouritesStore = FavouritesStore()
 
     /// --------------------------------------------------------
     /// App Body
@@ -61,7 +63,9 @@ struct DemoNewsApp: App {
                 /// let rootVC = SignInViewController()
                 /// UINavigationController(rootViewController: rootVC)
                 SignInView()
+                //NewsDetailView
             }
+            .environmentObject(favouritesStore)
         }
     }
 }

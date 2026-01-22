@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
+import Combine
+
 
 /// ------------------------------------------------------------
 /// NewsDetailView (SwiftUI)
@@ -25,6 +28,7 @@ struct NewsDetailView: View {
     // MARK: - Stored Properties (UIKit ivars equivalent)
 
     let article: Article
+    @EnvironmentObject private var favouritesStore: FavouritesStore
     @Environment(\.dismiss) private var dismiss
 
     @State private var image: UIImage? = nil
@@ -57,7 +61,7 @@ struct NewsDetailView: View {
                         .stroke(Color.secondary, lineWidth: 3)
                 )
                 .background(Color(.secondarySystemBackground))
-
+                
                 // Headline
                 Text(article.title)
                     .font(.title2)
@@ -112,7 +116,7 @@ struct NewsDetailView: View {
             .padding(.bottom, 24)
         }
 
-        /// Navigation bar configuration (matches UIKit)
+        /// Navigation bar configuration
         .navigationTitle("News Details")
         .navigationBarTitleDisplayMode(.inline)
 
@@ -120,9 +124,11 @@ struct NewsDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
+                    favouritesStore.add(article)
                     showFavouriteAlert = true
                 } label: {
-                    Image(systemName: "heart")
+                    //Image(systemName: "heart")
+                    Image(systemName: favouritesStore.isFavourite(article) ? "heart.fill" : "heart")
                         .foregroundColor(.black)
                 }
             }
@@ -137,11 +143,12 @@ struct NewsDetailView: View {
         .alert("Add to Favourites", isPresented: $showFavouriteAlert) {
             Button("OK", role: .cancel) { }
         } message: {
-            Text("Coming Soon")
+            Text("Added to Favourites Successfully")
         }
 
         /// Load image when view appears
         .onAppear {
+            print("DEBUG: favouritesStore=\(FavouritesStore.self)")
             loadImageIfNeeded()
         }
     }
@@ -162,7 +169,7 @@ struct NewsDetailView: View {
         let iso = ISO8601DateFormatter()
         if let date = iso.date(from: isoString) {
             let df = DateFormatter()
-            df.dateFormat = "dd/mm/yyyy"
+            df.dateFormat = "dd/MM/yyyy"
             return df.string(from: date)
         }
         return isoString

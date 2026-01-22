@@ -13,6 +13,9 @@ struct NewsView: View {
     @State private var showFavouriteAlert: Bool = false
     @State private var selectedArticleIndex: Int = -1
     @State private var navigateToDetail: Bool = false
+    @State private var navigateToFavourite: Bool = false
+    
+    @EnvironmentObject private var favouritesStore: FavouritesStore
 
     // MARK: - Body
 
@@ -43,12 +46,17 @@ struct NewsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    showFavouriteAlert = true
+                    //showFavouriteAlert = true
+                    navigateToFavourite = true
                 } label: {
                     Image(systemName: "heart")
                         .foregroundColor(.white)
                 }
             }
+        }
+        
+        .navigationDestination(isPresented: $navigateToFavourite) {
+            FavouriteView()
         }
 
         .toolbarBackground(Color.orange, for: .navigationBar)
@@ -63,13 +71,15 @@ struct NewsView: View {
             }
         }
 
-        .alert("Show Favourites", isPresented: $showFavouriteAlert) {
+        //Show Favourites via Object Cache is implemented
+ /*       .alert("Show Favourites", isPresented: $showFavouriteAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text("Coming Soon")
-        }
+        }*/
 
         .onAppear {
+            navigateToFavourite = false
             fetchNews()
         }
     }
