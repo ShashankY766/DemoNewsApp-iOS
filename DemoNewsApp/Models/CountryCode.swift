@@ -8,7 +8,7 @@
 import Foundation
 
 /// Country model for dialing code handling
-/// Only `dialCode` is sent to backend
+/// Only dial  is sent to backend
 struct CountryCode {
     let name: String          // India
     let dialCode: String      // 91

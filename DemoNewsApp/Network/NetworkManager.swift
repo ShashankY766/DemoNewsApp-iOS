@@ -13,7 +13,7 @@ final class NetworkManager {
     static let IS_LB_ENABLED = false
     static let baseURL = "http://IP_ADDRESS/"
 
-    // MARK: - Sign In
+    // Sign In
     static func signIn(
         username: String,
         encryptedPassword: String,
@@ -39,7 +39,7 @@ final class NetworkManager {
         completion(true, "Sign In Success")
     }
 
-    // MARK: - Sign Up
+    // Sign Up
     static func signUp(
         body: [String: Any],
         completion: @escaping (Bool, String) -> Void

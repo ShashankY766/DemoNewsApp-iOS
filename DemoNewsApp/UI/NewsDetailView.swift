@@ -13,7 +13,7 @@ import Combine
 /// ------------------------------------------------------------
 /// NewsDetailView (SwiftUI)
 /// ------------------------------------------------------------
-/// Direct SwiftUI replacement forController.swift
+/// Direct SwiftUI replacement for Controller.swift
 ///
 /// - UIViewController → View
 /// - UIScrollView + UIStackView → ScrollView + VStack
@@ -25,7 +25,7 @@ import Combine
 /// ------------------------------------------------------------
 struct NewsDetailView: View {
 
-    // MARK: - Stored Properties (UIKit ivars equivalent)
+    // Stored Properties (Kit ivars equivalent)
 
     let article: Article
     @EnvironmentObject private var favouritesStore: FavouritesStore
@@ -116,7 +116,7 @@ struct NewsDetailView: View {
             .padding(.bottom, 24)
         }
 
-        /// Navigation bar configuration
+        // Navigation bar configuration
         .navigationTitle("News Details")
         .navigationBarTitleDisplayMode(.inline)
 
@@ -129,7 +129,7 @@ struct NewsDetailView: View {
                 } label: {
                     //Image(systemName: "heart")
                     Image(systemName: favouritesStore.isFavourite(article) ? "heart.fill" : "heart")
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                 }
             }
         }
@@ -139,21 +139,21 @@ struct NewsDetailView: View {
         .toolbarBackground(.visible, for: .navigationBar)
     //    .toolbarColorScheme(.dark, for: .navigationBar)    imparts yellowish visibilty to orange
 
-        /// Favourite alert (same logic as UIKit)
+        // Favourite alert same logic as Kit
         .alert("Add to Favourites", isPresented: $showFavouriteAlert) {
             Button("OK", role: .cancel) { }
         } message: {
             Text("Added to Favourites Successfully")
         }
 
-        /// Load image when view appears
+        // Load image when view appears
         .onAppear {
             print("DEBUG: favouritesStore=\(FavouritesStore.self)")
             loadImageIfNeeded()
         }
     }
 
-    // MARK: - Helpers (UIKit private methods equivalent)
+    // Helpers (UIKit private methods equivalent)
 
     /// Returns author or fallback
     private var authorText: String {
@@ -175,7 +175,7 @@ struct NewsDetailView: View {
         return isoString
     }
 
-    /// Loads article image asynchronously
+    // Loads article image asynchronously
     private func loadImageIfNeeded() {
         guard let urlString = article.urlToImage,
               let url = URL(string: urlString) else {

@@ -17,7 +17,7 @@ import SwiftUI
 /// ------------------------------------------------------------
 struct SignInView: View {
 
-    // MARK: - State (UIKit ivars equivalent)
+    // State (UIKit ivars equivalent)
     
   //  @Binding var text: String
 
@@ -32,7 +32,7 @@ struct SignInView: View {
     @State private var alertMessage: String = ""
     @State private var navigateToNews: Bool = false
 
-    // MARK: - Focus (Keyboard handling)
+    // Focus (Keyboard handling)
 
     @FocusState private var focusedField: Field?
 
@@ -41,11 +41,11 @@ struct SignInView: View {
         case password
     }
 
-    // MARK: - Constants
+    // Constants
 
     private let buttonHeight: CGFloat = 48
 
-    // MARK: - Body
+    // Body
 
     var body: some View {
 
@@ -190,7 +190,7 @@ struct SignInView: View {
         }
     }
 
-    // MARK: - Actions
+    // Actions
     
     private func validateInput() {
             let trimmed = username.trimmingCharacters(in: .whitespacesAndNewlines)

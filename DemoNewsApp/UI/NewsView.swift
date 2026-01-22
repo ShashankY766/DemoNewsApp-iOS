@@ -7,7 +7,7 @@ import SwiftUI
 
 struct NewsView: View {
 
-    // MARK: - State
+    // State
 
     @State private var articles: [Article] = []
     @State private var showFavouriteAlert: Bool = false
@@ -17,7 +17,7 @@ struct NewsView: View {
     
     @EnvironmentObject private var favouritesStore: FavouritesStore
 
-    // MARK: - Body
+    // Body
 
     var body: some View {
 
@@ -84,7 +84,7 @@ struct NewsView: View {
         }
     }
 
-    // MARK: - API (MUST be inside struct)
+    // API (MUST be inside struct)
 
     private func fetchNews() {
 
@@ -107,7 +107,7 @@ struct NewsView: View {
     }
 }
 
-// MARK: - Row View
+// Row View
 
 struct NewsRowView: View {
 

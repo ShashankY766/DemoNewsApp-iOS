@@ -4,12 +4,11 @@
 //
 //  Created by Shashank Yadav on 27/12/25.
 //
-//  PURPOSE:
 //  - Shared UI helper utilities
 //  - Background gradient support
 //  - Header label styling
 //
-//  IMPORTANT:
+//  IMP:
 //  - Function names, parameters, and return types are NOT changed
 //  - Safe to use from both UIKit and SwiftUI
 //

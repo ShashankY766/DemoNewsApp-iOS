@@ -21,7 +21,7 @@ struct AppConfig {
     static let BASE_URL: String = "http://IP_ADDRESS/"
 }
 
-// MARK: - Common Helper
+// Common Helper
 
 final class CommonHelper {
 
@@ -109,7 +109,7 @@ final class CommonHelper {
         return true
     }
 
-    // MARK: - PASSWORD VALIDATION
+    // PASSWORD VALIDATION
 
     /// Validates password against regex rules
     static func validatePassword(
@@ -138,7 +138,7 @@ final class CommonHelper {
         return true
     }
 
-    // MARK: - LOGGING (DEBUG ONLY)
+    // LOGGING (DEBUG ONLY)
 
     /// Debug-only structured logging
     static func log(
@@ -159,7 +159,7 @@ final class CommonHelper {
         #endif
     }
 
-    // MARK: - Navigation Bar Appearance
+    // Navigation Bar Appearance
 
     /// Applies orange navigation bar appearance used by UIKit view controllers
     /// SwiftUI screens using UINavigationController will also inherit this appearance
